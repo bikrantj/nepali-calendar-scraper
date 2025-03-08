@@ -1,6 +1,7 @@
 NOTE: This project is developed only for educational purposes.
 
 # nepali-calendar-scraper
+This script scrapes calendar data from [Hamro Paro](https://www.hamropatro.com).
 
 #### Running Project locally:
 
