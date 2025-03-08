@@ -3,13 +3,32 @@ NOTE: This project is developed only for educational purposes.
 # nepali-calendar-scraper
 This script scrapes calendar data from [Hamro Patro](https://www.hamropatro.com).
 
+#### data.json
+The `data.json` file contains already scraped data. However `tithis` and `events` data are not available for upcoming years.
+If you want to use _calendar-data_ directly, you can download and use `data.json` directly. 
+You can also access the json data through an api request like:
+```ts
+fetch('https://raw.githubusercontent.com/bikrantj/nepali-calendar-scraper/main/data.json')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);  // Do something with the data
+  })
+  .catch(error => console.error('Error fetching the JSON file:', error));
+
+```
+Or through `cURL` request:
+```bash
+curl https://raw.githubusercontent.com/bikrantj/nepali-calendar-scraper/main/data.json
+```
+> The `tithis` and `events` will be updated once they are available on [Hamro Patro](https://www.hamropatro.com).
+
 #### Running Project locally:
 
 1. Make sure you've installed `Google Chrome` and  [Bun Runtime](https://bun.sh) in your machine.
 
 2. Clone the repo:
 ```bash
-git clone https://www.github.com/bikrantj/nepali-calendar.scraper.git
+git clone git@github.com:bikrantj/nepali-calendar-scraper.git
 ```
 
 3. Install dependencies
