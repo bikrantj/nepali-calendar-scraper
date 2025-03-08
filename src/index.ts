@@ -28,7 +28,6 @@ async function setupPage(browser: Browser) {
   return page;
 }
 
-// --- Helper Functions for Data Extraction ---
 async function scrapeMonthData(
   page: Page,
   spinner: Ora
@@ -39,7 +38,7 @@ async function scrapeMonthData(
   for (const li of liElements) {
     const dateId = await li.evaluate((el) => el.id);
     if (dateId === "0") {
-      continue; // Skip id="0" entries
+      continue; // Skip id="0" entries, they are data from previous/next month, they are automatically fetched in next iterations.
     }
 
     const nepaliDay = await getNepaliDay(li);
@@ -64,7 +63,7 @@ async function scrapeMonthData(
   return calendarDays;
 }
 
-// --- Main Function (unchanged except type) ---
+// --- Main Function ---
 async function scrapeCalendarData(monthCount: number = 2) {
   const spinner = ora("Setting up scraper...").start();
   const browser = await launchBrowser();
